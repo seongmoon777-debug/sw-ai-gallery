@@ -1,8 +1,13 @@
 # 의창초 SW·AI 연수 자료실
 
+**대표 주소:** https://seongmoon777-debug.github.io/sw-ai-gallery/training/
+
+이 `training/` 폴더의 `index.html`을 연수 자료실의 단일 관리 페이지로 사용합니다. 예전 개별 HTML 파일을 별도로 공유할 필요가 없습니다.
+
 ## 구성
 - `index.html`: 연수 안내 및 자료 링크를 모은 메인 페이지
 - `roulette.html`: 급식 줄서기 핀볼 룰렛 실습 도구
+- `muscle-beach.html`: 머슬 비치 체육관 맨몸 운동 실습 도구
 
 ## 나중에 캔바 연수 자료 연결하기
 1. 저장소 `sw-ai-gallery/training/index.html` 파일을 GitHub에서 열고 연필(Edit) 아이콘을 누릅니다.
