@@ -9,12 +9,11 @@
 - `roulette.html`: 급식 줄서기 핀볼 룰렛 실습 도구
 - `muscle-beach.html`: 머슬 비치 체육관 맨몸 운동 실습 도구
 
-## 나중에 캔바 연수 자료 연결하기
-1. 저장소 `sw-ai-gallery/training/index.html` 파일을 GitHub에서 열고 연필(Edit) 아이콘을 누릅니다.
-2. 아래 코드를 찾습니다.
-   `var CANVA_URL = "";`
-3. 따옴표 안에 캔바 발표 자료의 공개 공유/임베드 링크를 붙여넣습니다.
-4. Commit changes를 누르면 배포 후 '캔바 연수 자료' 메뉴가 활성화됩니다.
+## 연수 발표자료
+- `의창초_AI연수_웹용.pdf`: 업로드 받은 PPTX(38장)를 웹 브라우저에서 열 수 있도록 변환한 PDF입니다.
+- `index.html`의 `CANVA_URL`은 현재 PDF를 가리킵니다.
+- 원본 PPTX에는 큰 영상 파일 2개가 포함되어 있어 GitHub 저장소에 직접 업로드하지 않았습니다. PDF에서는 내장 영상과 애니메이션이 재생되지 않습니다.
+- 나중에 Canva 원본 링크로 대체하려면 `training/index.html`의 `CANVA_URL`을 수정하고 Commit 하세요.
 
 ## 개인정보 및 공유
 - 로그인 없이 열리는 공개 사이트입니다. 학생 실명, PAPS 측정 결과, 비밀번호 등을 올리지 마세요.
