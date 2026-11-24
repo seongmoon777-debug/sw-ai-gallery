@@ -182,14 +182,15 @@
   // ▼ 링크를 따옴표 안에 붙여 넣으세요. 비워 두면 "준비 중"으로 보여요.
   var CANVA_URL = "";   // 캔바 연수 자료 공유 링크
 
-  // embed:false 는 이 화면 안에서 열 수 없는 주소일 때. roulette.html 은 index.html 과 같은 폴더에 함께 올려야 해요.
+  // embed:false 는 이 화면 안에서 열 수 없는 주소일 때. roulette.html, muscle-beach.html 은 index.html 과 같은 폴더에 함께 올려야 해요.
   var ITEMS = [
     {id:"canva",    group:"연수",      title:"캔바 연수 자료",     icon:"chick", url:CANVA_URL, embed:true},
     {id:"gallery",  group:"연수",      title:"SW·AI 사이트 갤러리", icon:"robot", url:"https://seongmoon777-debug.github.io/sw-ai-gallery/", embed:true},
     {id:"world",    group:"수업 활용 예시", title:"문스쿨 모험마을",     emoji:"🏘️",  url:"https://seongmoon777-debug.github.io/class-world/", embed:true},
     {id:"jump",     group:"수업 활용 예시", title:"음악줄넘기 조 편성",  emoji:"🪢",  url:"https://seongmoon777-debug.github.io/music-jump-rope/", embed:true},
     {id:"roulette", group:"수업 활용 예시", title:"급식 줄서기 룰렛",      emoji:"🎡",  url:"roulette.html", embed:true},
-    {id:"pe",       group:"수업 활용 예시", title:"체육전담 스케줄러",   emoji:"📅",  url:"https://seongmoon777-debug.github.io/sw-ai-gallery/pe-scheduler/index.html", embed:true}
+    {id:"pe",       group:"수업 활용 예시", title:"체육전담 스케줄러",   emoji:"📅",  url:"https://seongmoon777-debug.github.io/sw-ai-gallery/pe-scheduler/index.html", embed:true},
+    {id:"gym",      group:"수업 활용 예시", title:"머슬 비치 체육관",    emoji:"💪",  url:"muscle-beach.html", embed:true}
   ];
 
   var nav = document.getElementById("nav");
@@ -251,9 +252,9 @@
       '<h1 class="title">의창초 <b>SW·AI</b> 연수 자료실</h1>' +
       '<p class="sub">AI·디지털 도구를 직접 열어 보고 수업 활용 사례를 체험해 보세요.<br>왼쪽 목차에서 자료를 선택할 수 있어요.</p>' +
       '<div class="agenda"><b>오늘의 탐색 순서</b><span>① 사이트 갤러리 둘러보기</span><span>② 교실 활용 도구 체험하기</span><span>③ 나의 수업에 적용해 보기</span></div>' +
-      row(false, "chick", "안녕! 나는 삐약이야", "캔바 발표 자료는 추후 연결할게요. 지금은 다른 자료를 먼저 둘러보세요!", "", "캔바 자료 확인", "canva") +
-      row(true, "robot", "나는 로봇 코딩이!", "수업에 바로 쓸 수 있는 사이트를 모아 뒀어요.", "b", "갤러리 보기", "gallery") +
-      row(false, "cat", "몽실이는 참고 자료 담당!", "AI로 제작한 학급 운영 도구를 직접 체험해 보세요.", "m", "활용 예시 보기", "world") +
+      row(false, "chick", "안녕! 나는 일단지야", "캔바 발표 자료는 추후 연결할게요. 지금은 다른 자료를 먼저 둘러보세요!", "", "캔바 자료 확인", "canva") +
+      row(true, "robot", "나는 로봇 이단지!", "수업에 바로 쓸 수 있는 사이트를 모아 뒀어요.", "b", "갤러리 보기", "gallery") +
+      row(false, "cat", "삼단지는 참고 자료 담당!", "AI로 제작한 학급 운영 도구를 직접 체험해 보세요.", "m", "활용 예시 보기", "world") +
       '</div></div>';
     view.querySelectorAll("[data-go]").forEach(function (x) {
       x.addEventListener("click", function () { show(x.dataset.go); });
