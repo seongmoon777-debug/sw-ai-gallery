@@ -61,7 +61,9 @@
     background:var(--white);border-bottom:4px solid var(--ink);
   }
   .menu-btn{display:none;background:var(--yellow);border:3px solid var(--ink);border-radius:12px;padding:2px 12px;font-size:20px}
-  .crumb{flex:1;min-width:0;font-size:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .topbar-heading{flex:1;min-width:0}
+  .student-guide{margin:4px 0 0;font-size:12px;line-height:1.45}
+  .crumb{font-size:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .open-new{
     flex:0 0 auto;text-decoration:none;color:var(--ink);background:var(--yellow);
     border:3px solid var(--ink);border-radius:999px;padding:4px 14px;font-size:17px;box-shadow:0 3px 0 var(--ink);
@@ -172,7 +174,10 @@
 <section class="stage">
   <div class="topbar">
     <button class="menu-btn" id="menuBtn" type="button" aria-label="목차 열기">☰</button>
-    <div class="crumb" id="crumb">처음 화면</div>
+    <div class="topbar-heading">
+      <div class="crumb" id="crumb">처음 화면</div>
+      <p class="student-guide" id="studentGuide" hidden>학생 아이디 <strong>MSCHOOL01~MSCHOOL30</strong><br>비밀번호는 선생님이 배부한 것을 입력하세요.</p>
+    </div>
     <a class="open-new" id="openNew" href="#" target="_blank" rel="noopener" hidden>새 탭으로 열기</a>
   </div>
   <div class="viewport" id="view"></div>
@@ -196,6 +201,7 @@
   var nav = document.getElementById("nav");
   var view = document.getElementById("view");
   var crumb = document.getElementById("crumb");
+  var studentGuide = document.getElementById("studentGuide");
   var openNew = document.getElementById("openNew");
   var current = null;
 
@@ -248,6 +254,7 @@
   function home(){
     current = null; setActive(null);
     crumb.textContent = "처음 화면"; openNew.hidden = true;
+    studentGuide.hidden = true;
     view.innerHTML = '<div class="panel"><div class="wrap">' +
       '<h1 class="title">의창초 <b>SW·AI</b> 연수 자료실</h1>' +
       '<p class="sub">AI·디지털 도구를 직접 열어 보고 수업 활용 사례를 체험해 보세요.<br>왼쪽 목차에서 자료를 선택할 수 있어요.</p>' +
@@ -275,6 +282,7 @@
     if (!it) { home(); return; }
     current = it; setActive(id);
     crumb.textContent = it.title;
+    studentGuide.hidden = id !== "world";
     document.body.classList.remove("drawer");
     setHash(id);
 
