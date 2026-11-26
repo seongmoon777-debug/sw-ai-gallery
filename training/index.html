@@ -48,6 +48,7 @@
   .nav-item .ni{flex:0 0 34px;width:34px;height:34px;display:grid;place-items:center;font-size:22px}
   .nav-item .ni svg{width:34px;height:34px}
   .nav-item .lbl{flex:1}
+  .nav-student-id{display:block;margin-top:3px;font-size:12px;line-height:1.35;font-weight:400}
   .tag{font-size:13px;background:#eef1f6;color:#7b869c;border-radius:999px;padding:1px 9px}
   .nav-item.off{opacity:.65}
   .foot{margin-top:auto;font-size:14px;color:var(--muted);padding:14px 8px 0}
@@ -61,9 +62,7 @@
     background:var(--white);border-bottom:4px solid var(--ink);
   }
   .menu-btn{display:none;background:var(--yellow);border:3px solid var(--ink);border-radius:12px;padding:2px 12px;font-size:20px}
-  .topbar-heading{flex:1;min-width:0}
-  .student-guide{margin:4px 0 0;font-size:12px;line-height:1.45}
-  .crumb{font-size:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .crumb{flex:1;min-width:0;font-size:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .open-new{
     flex:0 0 auto;text-decoration:none;color:var(--ink);background:var(--yellow);
     border:3px solid var(--ink);border-radius:999px;padding:4px 14px;font-size:17px;box-shadow:0 3px 0 var(--ink);
@@ -174,10 +173,7 @@
 <section class="stage">
   <div class="topbar">
     <button class="menu-btn" id="menuBtn" type="button" aria-label="목차 열기">☰</button>
-    <div class="topbar-heading">
-      <div class="crumb" id="crumb">처음 화면</div>
-      <p class="student-guide" id="studentGuide" hidden>학생 아이디 <strong>MSCHOOL01~MSCHOOL30</strong><br>비밀번호는 선생님이 배부한 것을 입력하세요.</p>
-    </div>
+    <div class="crumb" id="crumb">처음 화면</div>
     <a class="open-new" id="openNew" href="#" target="_blank" rel="noopener" hidden>새 탭으로 열기</a>
   </div>
   <div class="viewport" id="view"></div>
@@ -201,7 +197,6 @@
   var nav = document.getElementById("nav");
   var view = document.getElementById("view");
   var crumb = document.getElementById("crumb");
-  var studentGuide = document.getElementById("studentGuide");
   var openNew = document.getElementById("openNew");
   var current = null;
 
@@ -232,7 +227,8 @@
     b.type = "button"; b.className = "nav-item"; b.dataset.id = it.id;
     var ic = it.icon ? '<span class="ni"><svg aria-hidden="true"><use href="#' + it.icon + '"/></svg></span>'
                      : '<span class="ni">' + it.emoji + '</span>';
-    b.innerHTML = ic + '<span class="lbl">' + it.title + '</span>' + (it.url ? "" : '<em class="tag">준비 중</em>');
+    var studentId = it.id === "world" ? '<small class="nav-student-id">아이디 : MSCHOOL01~MSCHOOL30</small>' : "";
+    b.innerHTML = ic + '<span class="lbl">' + it.title + studentId + '</span>' + (it.url ? "" : '<em class="tag">준비 중</em>');
     if (!it.url) b.classList.add("off");
     b.addEventListener("click", function () { show(it.id); });
     nav.appendChild(b);
@@ -254,7 +250,6 @@
   function home(){
     current = null; setActive(null);
     crumb.textContent = "처음 화면"; openNew.hidden = true;
-    studentGuide.hidden = true;
     view.innerHTML = '<div class="panel"><div class="wrap">' +
       '<h1 class="title">의창초 <b>SW·AI</b> 연수 자료실</h1>' +
       '<p class="sub">AI·디지털 도구를 직접 열어 보고 수업 활용 사례를 체험해 보세요.<br>왼쪽 목차에서 자료를 선택할 수 있어요.</p>' +
@@ -282,7 +277,6 @@
     if (!it) { home(); return; }
     current = it; setActive(id);
     crumb.textContent = it.title;
-    studentGuide.hidden = id !== "world";
     document.body.classList.remove("drawer");
     setHash(id);
 
